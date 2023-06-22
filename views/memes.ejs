@@ -2,41 +2,50 @@
 <html lang="en">
 
 <head>
-  <title>Portfolio</title>
-  <!-- BM Chaneg the path to the css files -->
-  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
-  <link href="../../stylesheets/navbar.css" rel="stylesheet">
-
+  <title>Memes Overview</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+  <link href="../stylesheets/memes/navbar.css" rel="stylesheet">
+  <link href="../stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
   <%- include('./partials/navbar.ejs') %>
+  <div data-spy="scroll" data-target="#navbar" data-offset="0">
     <section class="container">
-      <table class="table" id="table">
+      <div class="row mb-3">
+        <div class="col-auto">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search by name">
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+      </div>
+      <table class="table table-bordered table-hover table-sm" id="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Size</th>
             <th scope="col">Image</th>
-            <th scope="col">Options</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-
-          <tr>
-            <th scope="row">
-            </th>
-            <td>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
+          <% for (let i = 0; i < memesData.length; i++) { %>
+          <tr <% if (memesData[i].viewed) { %>class="viewed"<% } %>>
+            <td><img src="<%= memesData[i].url %>" alt="<%= memesData[i].name %>" style="max-width: 20%;"></td>
+            <td><%= memesData[i].name %></td>
+            <td><button class="btn btn-primary details-button" data-id="<%= memesData[i].id %>" onclick="openMemeDetails(event)">Details</button></td>
           </tr>
+          <% } %>
         </tbody>
       </table>
     </section>
+  </div>
     <%- include('./partials/scripts.ejs') %>
+    <script src="../js/custom.js"></script>
+    <script src="../js/search.js"></script>
+    <script>
+    document.getElementById('searchButton').addEventListener('click', searchMemes);
+    </script>
 </body>
 
 </html>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <title>Meme Central</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+  <link href="../stylesheets/home/header.css" rel="stylesheet">
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="jquery.js"></script>
+  <body class="position-relative" data-bs-spy="scroll">
+    <%- include('./partials/navbar.ejs') %>
+    <div data-spy="scroll" data-target="#navbar" data-offset="0">
+      <%- include('./partials/home.ejs') %>
+    </div>
+    <%- include('./partials/scripts.ejs') %>
   </body>
 </html>
