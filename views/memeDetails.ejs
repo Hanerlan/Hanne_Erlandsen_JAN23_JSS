@@ -13,11 +13,11 @@
     <section class="container">
       <h1>Meme Details</h1>
         <div>
-          <p>ID: <%= %></p>
-          <p>Name: <%= %></p>
-          <p>URL: <%= %></p>
-          <p>Image: <img src="<%= %>" alt="<%= %>" style="max-width: 100%;"></p>
-          <p>Dimensions: <%= %>px x <%= %>px</p>
+          <p>ID: <%= meme.id %></p>
+          <p>Name: <%= meme.name %></p>
+          <p>URL: <%= meme.url %></p>
+          <p><img src="<%= meme.url %>" alt="<%= meme.name %>" style="max-width: 100%;"></p>
+          <p>Dimensions: <%= meme.width %>px x <%= meme.height %>px</p>
         </div>
     </section>
   </div>

@@ -1,11 +1,6 @@
-table thead {
-  text-align: center;
-}
-
 .container {
   padding-top: 100px;
 }
-
 
 .btn-primary {
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -14,6 +9,14 @@ table thead {
   color: #fff;
   border: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+table thead {
+  text-align: center;
+}
+
+.viewed {
+  background-color: #d4d0d0;
 }
 
 .btn-primary:hover {

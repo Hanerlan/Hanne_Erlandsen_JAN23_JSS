@@ -30,10 +30,10 @@
         </thead>
         <tbody>
           <% for (let i = 0; i < memesData.length; i++) { %>
-          <tr <% if (memesData[i].viewed) { %>class="viewed"<% } %>>
+          <tr id="memeRow_<%= memesData[i].id %>" <% if (memesData[i].viewed) { %>class="viewed"<% } %>>
             <td><img src="<%= memesData[i].url %>" alt="<%= memesData[i].name %>" style="max-width: 20%;"></td>
             <td><%= memesData[i].name %></td>
-            <td><button class="btn btn-primary details-button" data-id="<%= memesData[i].id %>" onclick="openMemeDetails(event)">Details</button></td>
+            <td><button class="btn btn-primary details-button" data-meme-id="<%= memesData[i].id %>">Details</button></td>
           </tr>
           <% } %>
         </tbody>
@@ -42,10 +42,6 @@
   </div>
     <%- include('./partials/scripts.ejs') %>
     <script src="../js/custom.js"></script>
-    <script src="../js/search.js"></script>
-    <script>
-    document.getElementById('searchButton').addEventListener('click', searchMemes);
-    </script>
 </body>
 
 </html>
