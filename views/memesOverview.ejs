@@ -25,7 +25,9 @@
           <tr>
             <th scope="col">Image</th>
             <th scope="col">Name</th>
+            <% if(user) { %>
             <th scope="col"></th>
+            <% } %>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +35,9 @@
           <tr id="memeRow_<%= memesData[i].id %>" <% if (memesData[i].viewed) { %>class="viewed"<% } %>>
             <td><img src="<%= memesData[i].url %>" alt="<%= memesData[i].name %>" style="max-width: 20%;"></td>
             <td><%= memesData[i].name %></td>
+            <% if(user) { %>
             <td><button class="btn btn-primary details-button" data-meme-id="<%= memesData[i].id %>">Details</button></td>
+            <% } %>
           </tr>
           <% } %>
         </tbody>

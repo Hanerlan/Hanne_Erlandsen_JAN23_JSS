@@ -24,9 +24,9 @@
                 </li>
                 <li class="nav-item">
                     <% if (user) { %>
-                        <span class="nav-link username">Hi <%= user.username %>!</span>
+                        <span class="nav-link username"><%= user.username %></span>
                     <% } else { %>
-                        <span class="nav-link username">Hi Guest!</span>
+                        <span class="nav-link username">Guest</span>
                     <% } %>
                 </li>
             </ul>

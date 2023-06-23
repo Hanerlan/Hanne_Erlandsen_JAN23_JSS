@@ -77,11 +77,15 @@ router.get('/:id', async function (req, res, next) {
     });
 
     if (meme) {
-        res.render('memeDetails', { 
-            title: 'Meme Details', 
-            meme: meme, 
-            user: req.user 
-        });
+        if (req.user) {
+            res.render('memeDetails', { 
+                title: 'Meme Details', 
+                meme: meme, 
+                user: req.user 
+            });
+        } else {
+            res.redirect('/login')
+        }
     } else {
         res.status(404).send('Meme not found');
     }
