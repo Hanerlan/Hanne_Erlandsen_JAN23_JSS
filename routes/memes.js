@@ -30,9 +30,19 @@ router.get('/', async function (req, res, next) {
         let filteredMemes = memesData.filter(function (meme) {
             return meme.name.toLowerCase().includes(searchQuery.trim().toLowerCase());
         });
-        res.render('memesOverview', { title: 'Memes Overview', memesData: filteredMemes, searchQuery: searchQuery });
+        res.render('memesOverview', { 
+            title: 'Memes Overview', 
+            memesData: filteredMemes, 
+            searchQuery: searchQuery,
+            user: req.user  
+        });
     } else {
-        res.render('memesOverview', { title: 'Memes Overview', memesData: memesData, searchQuery: '' })
+        res.render('memesOverview', { 
+            title: 'Memes Overview', 
+            memesData: memesData, 
+            searchQuery: '',
+            user: req.user 
+        })
     }
 });
 
@@ -47,7 +57,11 @@ router.post('/', async function (req, res, next) {
 
     if (meme) {
         meme.viewed = true;
-        res.render('memeDetails', { title: 'Meme Details', meme: meme });
+        res.render('memeDetails', { 
+            title: 'Meme Details', 
+            meme: meme, 
+            user: req.user 
+        });
     } else {
         res.status(404).send('Meme not found');
     }
@@ -63,7 +77,11 @@ router.get('/:id', async function (req, res, next) {
     });
 
     if (meme) {
-        res.render('memeDetails', { title: 'Meme Details', meme: meme });
+        res.render('memeDetails', { 
+            title: 'Meme Details', 
+            meme: meme, 
+            user: req.user 
+        });
     } else {
         res.status(404).send('Meme not found');
     }

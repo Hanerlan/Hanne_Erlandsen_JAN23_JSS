@@ -3,7 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Meme Central' });
+  if(req.user) {
+    res.render('index', { title: 'Meme Central', user: req.user });
+  } else {
+    res.render('index', { title: 'Meme Central', user: null });
+  }
 });
 
 module.exports = router;
