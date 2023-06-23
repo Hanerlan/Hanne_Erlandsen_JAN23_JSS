@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
 var memesRouter = require('./routes/memes');
 
 
@@ -25,6 +26,7 @@ app.use(express.static(__dirname + '/node_modules/jquery/dist/'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/login', loginRouter);
 app.use('/memesOverview', memesRouter);
 app.use('/memeDetails', memesRouter);
 
