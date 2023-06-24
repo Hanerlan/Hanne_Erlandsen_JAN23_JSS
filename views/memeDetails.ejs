@@ -3,8 +3,8 @@
 
 <head>
   <title>Meme Details</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-  <link href="../stylesheets/meme/navbar.css" rel="stylesheet">
+  <%- include('./partials/head.ejs') %>
+  <link href="../stylesheets/meme.css" rel="stylesheet">
 </head>
 
 <body class="position-relative" data-bs-spy="scroll">
@@ -13,11 +13,11 @@
     <section class="container">
       <h1>Meme Details</h1>
         <div>
-          <p>ID: <%= meme.id %></p>
-          <p>Name: <%= meme.name %></p>
-          <p>URL: <%= meme.url %></p>
+          <p><strong>ID:</strong> <%= meme.id %></p>
+          <p><strong>Name:</strong> <%= meme.name %></p>
+          <p><strong>URL:</strong> <a href="<%= meme.url %>"><%= meme.url %></a></p>
           <p><img src="<%= meme.url %>" alt="<%= meme.name %>" style="max-width: 100%;"></p>
-          <p>Dimensions: <%= meme.width %>px x <%= meme.height %>px</p>
+          <p><strong>Dimensions:</strong> <%= meme.width %>px x <%= meme.height %>px</p>
         </div>
     </section>
   </div>

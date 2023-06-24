@@ -20,7 +20,6 @@ $(document).ready(function() {
   });
 });
 
-
 // Table search functionality
 function searchMemes() {
   let searchInput = $('#searchInput').val().trim().toLowerCase();

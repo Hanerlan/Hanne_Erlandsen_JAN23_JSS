@@ -50,7 +50,7 @@ router.get('/', async function (req, res, next) {
 router.post('/', async function (req, res, next) {
     await fetchMemesData();
 
-    let memeId = req.body.memeId; // Access the memeId from the request body
+    let memeId = req.body.memeId; 
     let meme = memesData.find(function (meme) {
         return meme.id === memeId;
     });
